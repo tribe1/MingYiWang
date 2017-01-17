@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.DataAccess.MySql", "MingYiWang.DataAccess.MySql\MingYiWang.DataAccess.MySql.csproj", "{0F57EB9F-6844-4768-807A-3CB5D4D7E684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.Business.Model", "MingYiWang.Business.Model\MingYiWang.Business.Model.csproj", "{E704E420-3870-4BE3-A23C-0FEA9FBDDF03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.Common", "MingYiWang.Common\MingYiWang.Common.csproj", "{D639F3EC-7AFE-4AD0-A8BC-5D9423E8F42C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.Business", "MingYiWang.Business\MingYiWang.Business.csproj", "{BF479838-E9EA-4E68-B672-506618DE6718}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.WebAPI", "MingYiWang.WebAPI\MingYiWang.WebAPI.csproj", "{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F57EB9F-6844-4768-807A-3CB5D4D7E684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F57EB9F-6844-4768-807A-3CB5D4D7E684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F57EB9F-6844-4768-807A-3CB5D4D7E684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F57EB9F-6844-4768-807A-3CB5D4D7E684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E704E420-3870-4BE3-A23C-0FEA9FBDDF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E704E420-3870-4BE3-A23C-0FEA9FBDDF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E704E420-3870-4BE3-A23C-0FEA9FBDDF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E704E420-3870-4BE3-A23C-0FEA9FBDDF03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D639F3EC-7AFE-4AD0-A8BC-5D9423E8F42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D639F3EC-7AFE-4AD0-A8BC-5D9423E8F42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D639F3EC-7AFE-4AD0-A8BC-5D9423E8F42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D639F3EC-7AFE-4AD0-A8BC-5D9423E8F42C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF479838-E9EA-4E68-B672-506618DE6718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF479838-E9EA-4E68-B672-506618DE6718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF479838-E9EA-4E68-B672-506618DE6718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF479838-E9EA-4E68-B672-506618DE6718}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
