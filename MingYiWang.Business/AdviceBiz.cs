@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MingYiWang.Business
 {
-    public class Class1
+    public class AdviceBiz
     {
     }
 }

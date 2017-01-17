@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MingYiWang.DataAccess.MySql
+namespace MingYiWang.Business
 {
-    public class Class1
+    public class DoctorBiz
     {
     }
 }
