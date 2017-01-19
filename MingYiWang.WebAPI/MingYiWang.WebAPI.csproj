@@ -165,16 +165,26 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdviceController.cs" />
+    <Compile Include="Controllers\DeptController.cs" />
+    <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\KeyRegController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\KeyReg.cs" />
     <Compile Include="Models\Request\AdviceRequest.cs" />
+    <Compile Include="Models\Request\DeptRequest.cs" />
+    <Compile Include="Models\Request\DoctorQueryRequest.cs" />
     <Compile Include="Models\Request\DoctorRegisterRequest.cs" />
+    <Compile Include="Models\Request\HospitalRequest.cs" />
+    <Compile Include="Models\Request\KeyRegRequest.cs" />
     <Compile Include="Models\Request\PatientRegisterRequest.cs" />
     <Compile Include="Models\Response\AdviceResponse.cs" />
+    <Compile Include="Models\Response\DoctorQueryResponse.cs" />
+    <Compile Include="Models\Response\HospitalResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

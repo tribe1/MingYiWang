@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorHandle.cs" />
+    <Compile Include="Model\CommboxItem.cs" />
     <Compile Include="Model\ResultApi.cs" />
     <Compile Include="Model\ReturnCodeResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
