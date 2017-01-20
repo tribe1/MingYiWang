@@ -11,7 +11,22 @@ namespace MingYiWang.WebAPI.Controllers
 {
     public class PatientController : ApiController
     {
+        /// <summary>
+        /// 登记用户信息
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public ResultApi<string> Register([FromBody] PatientRegisterRequest req)
+        {
+            return new ResultApi<string>();
+        }
+
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public ResultApi<string> ChangInfo([FromBody] PatientInfoChangeRequest req)
         {
             return new ResultApi<string>();
         }

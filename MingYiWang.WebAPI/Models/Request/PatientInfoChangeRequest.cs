@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace MingYiWang.Business.Model
+namespace MingYiWang.WebAPI.Models
 {
-    public class Person
+    public class PatientInfoChangeRequest
     {
 
-        /// <summary>
-        /// 主键唯一标识一个用户
-        /// </summary>
-        public string Id { get; set; }
+        public string Id { get; private set; }
+
+
         public string Name { get; set; }
         /// <summary>
         /// 出生年月
@@ -32,5 +30,11 @@ namespace MingYiWang.Business.Model
         /// 性别
         /// </summary>
         public string Gender { get; set; }
+        public PatientInfoChangeRequest(string id)
+        {
+
+            Id = id;
+        }
+
     }
 }
