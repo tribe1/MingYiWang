@@ -1,5 +1,6 @@
 ﻿using MingYiWang.Business.Model;
 using MingYiWang.Common.Model;
+using MingYiWang.DataAccess.MySql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,23 @@ namespace MingYiWang.Business
 
         public ResultApi<string> SaveInfo()
         {
-            throw new NotImplementedException();
+            var result = new ResultApi<string>();
+            try
+            {
+                var dbContext = new PatientContext();
+                dbContext.Patients.Add(_patient);
+                dbContext.Save();
+                result.Sucess = true;
+                result.ReturnMsg = "保存信息成功";
+            }
+            catch (Exception exp)
+            {
+
+                result.ReturnMsg = exp.Message;
+                result.Sucess = false;
+                result.Data = "保存失败";
+            }
+            return result;
         }
     }
 }

@@ -7,5 +7,10 @@ namespace MingYiWang.WebAPI.Models
 {
     public class PatientRegisterRequest
     {
+        public string Name { get; set; }
+
+        public string Tel { get; set; }
+
+        public string Gender { get; set; }
     }
 }

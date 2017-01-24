@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using MingYiWang.Common.Model;
 using MingYiWang.WebAPI.Models;
+using MingYiWang.Business;
+using MingYiWang.Business.Model;
 
 namespace MingYiWang.WebAPI.Controllers
 {
@@ -13,7 +15,15 @@ namespace MingYiWang.WebAPI.Controllers
     {
         public ResultApi<string> Register([FromBody] PatientRegisterRequest req)
         {
-            return new ResultApi<string>();
+            var saveUserInfo = new SavePatientInfo(new Patient()
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                Name = req.Name,
+                Gender = req.Gender,
+                Tel = req.Tel,
+            });
+
+            return saveUserInfo.SaveInfo();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MingYiWang.Business.Model
     public class Person
     {
 
+        public string Id { get; set; }
         public string Name { get; set; }
         /// <summary>
         /// 出生年月
