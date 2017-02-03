@@ -14,7 +14,7 @@ namespace MingYiWang.Business.Model
         /// <summary>
         /// 出生年月
         /// </summary>
-        public string BirthDay { get; set; }
+        public DateTime BirthDay { get; set; }
         /// <summary>
         /// 年龄
         /// </summary>
