@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>医生列表</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="dept">科室:</label>
+                            </span>
+                            <select class="form-control" id="dept">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="lastname">关键字:</label>
+                            </span>
+                            <input type="text" class="form-control" id="lastname" placeholder="请输入关键字">
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-default btn-large">查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>当前科室</span>
+                        <span class="badge">14</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="view">
+                        <div class="list-group" contenteditable="true">
+                            <a href="#" class="list-group-item active">Home</a>
+                            <div class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="/Content/themes/base/images/doctor.png" class="img-circle img-responsive">
+                                        <h4 class="list-group-item-heading">TangZhiWei</h4>
+
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <p class="list-group-item-text">具有丰富的临床经营，擅长肝病，乙肝等治疗</p>
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <p >
+                                            <a class="btn btn-primary btn-xs" href="#">Learn more</a>
+                                        </p>
+                                        <p >
+                                            <a class="btn btn-primary btn-xs" href="#">Learn more</a>
+                                        </p>
+                                        <p>
+                                            <a class="btn btn-primary btn-xs" href="#">Learn more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
