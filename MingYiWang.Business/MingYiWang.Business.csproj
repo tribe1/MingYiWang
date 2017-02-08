@@ -43,10 +43,23 @@
     <Compile Include="AdviceBiz.cs" />
     <Compile Include="ChangeUserInfo\ChangeDoctorInfo.cs" />
     <Compile Include="ChangeUserInfo\ChangePatientInfo.cs" />
-    <Compile Include="DoctorBiz.cs" />
     <Compile Include="ChangeUserInfo\IChangeUserInfo.cs" />
+    <Compile Include="DoctorBiz.cs" />
     <Compile Include="PatientBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveUserInfo\ISaveUserInfo.cs" />
+    <Compile Include="SaveUserInfo\SaveDoctorInfo.cs" />
+    <Compile Include="SaveUserInfo\SavePatientInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MingYiWang.Business.Model\MingYiWang.Business.Model.csproj">
+      <Project>{e704e420-3870-4be3-a23c-0fea9fbddf03}</Project>
+      <Name>MingYiWang.Business.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MingYiWang.Common\MingYiWang.Common.csproj">
+      <Project>{d639f3ec-7afe-4ad0-a8bc-5d9423e8f42c}</Project>
+      <Name>MingYiWang.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MingYiWang.Business.Model\MingYiWang.Business.Model.csproj">
