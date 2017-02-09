@@ -179,6 +179,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handle\CheckWeChatSignatureHandler.cs" />
     <Compile Include="Models\KeyReg.cs" />
     <Compile Include="Models\Request\AdviceRequest.cs" />
     <Compile Include="Models\Request\DeptRequest.cs" />
@@ -332,6 +333,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\iHealthwoo.WeChat.Utility\iHealthwoo.WeChat.Utility.csproj">
+      <Project>{198952f5-4fd3-4de5-8f96-2661646fa673}</Project>
+      <Name>iHealthwoo.WeChat.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MingYiWang.Business.Model\MingYiWang.Business.Model.csproj">
       <Project>{e704e420-3870-4be3-a23c-0fea9fbddf03}</Project>
       <Name>MingYiWang.Business.Model</Name>
