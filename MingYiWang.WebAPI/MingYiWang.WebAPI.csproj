@@ -187,6 +187,7 @@
     <Compile Include="Models\Request\DoctorRegisterRequest.cs" />
     <Compile Include="Models\Request\HospitalRequest.cs" />
     <Compile Include="Models\Request\KeyRegRequest.cs" />
+    <Compile Include="Models\Request\PatientInfoChangeRequest.cs" />
     <Compile Include="Models\Request\PatientRegisterRequest.cs" />
     <Compile Include="Models\Response\AdviceResponse.cs" />
     <Compile Include="Models\Response\DoctorQueryResponse.cs" />
