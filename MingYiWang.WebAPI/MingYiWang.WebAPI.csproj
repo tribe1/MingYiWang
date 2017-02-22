@@ -259,7 +259,8 @@
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="Doctor\DoctorIndex.html" />
     <Content Include="Doctor\DoctorList.html" />
-    <Content Include="Doctor\My.html" />
+    <Content Include="Doctor\DoctorDetail.html" />
+    <Content Include="Doctor\DoctorRegister.html" />
     <Content Include="favicon.ico" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -287,6 +288,10 @@
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\npm.js" />
+    <Content Include="Patient\PatientDetail.html" />
+    <Content Include="Patient\PatientIndex.html" />
+    <Content Include="Question\QuestionDetail.html" />
+    <Content Include="Question\QuestionIndex.html" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -331,7 +336,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Patient\Register.html" />
+    <Content Include="Patient\PatientRegister.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
