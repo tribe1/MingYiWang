@@ -257,6 +257,9 @@
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="Demo\HelloWorld.html" />
+    <Content Include="Demo\VueBind.html" />
+    <Content Include="Demo\VueHelloWorld.html" />
     <Content Include="Doctor\DoctorIndex.html" />
     <Content Include="Doctor\DoctorList.html" />
     <Content Include="Doctor\DoctorDetail.html" />
