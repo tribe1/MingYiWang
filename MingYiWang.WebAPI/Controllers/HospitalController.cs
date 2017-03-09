@@ -14,7 +14,7 @@ namespace MingYiWang.WebAPI.Controllers
     /// </summary>
     public class HospitalController : ApiController
     {
-
+        [ActionName("Hospitals")]
         public ResultApi<List<CommboxItem>> List([FromBody] HospitalRequest req)
         {
 

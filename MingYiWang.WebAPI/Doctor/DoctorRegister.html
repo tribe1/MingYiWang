@@ -1,10 +1,69 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册--提供更好的服务</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
+    <div class="container">
+        <form id="form" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="email" class="col-xs-3 control-label">邮箱：</label>
+                <div class="col-xs-9">
+                    <input type="email" class="form-control" id="email" v-model="" placeholder="请输入邮箱" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userName" class="col-xs-3 control-label">姓名：</label>
+                <div class="col-xs-9">
+                    <input type="password" class="form-control" id="userName" placeholder="请输入姓名" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-xs-3 control-label">密码：</label>
+                <div class="col-xs-9">
+                    <input type="password" class="form-control" id="password" placeholder="请输入密码" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cfmPassword" class="col-xs-3 control-label">确认密码：</label>
+                <div class="col-xs-9">
+                    <input type="password" class="form-control" id="cfmPassword" placeholder="请输入确认密码" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <button type="submit" class="btn btn-default">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: '#form',
+            data: {
+                user: { email: '', userName: '', password: '', cfmPassword: '' },
+                apiUrl: 'http://211.149.193.19:8080/api/customers'
+            },
+            methods:
+    {
+        register: function () {
+            var vm = this,
+							callback = function (data) {
+							    vm.$set('item', {})
+							    // 添加成功后，重新加载页面数据
+							    vm.getCustomers()
+							}
+            // 将vm.item直接POST到服务端
+            ajaxHelper.post(vm.apiUrl, vm.item, callback)
+            this.show = false
 
+        }
+    }
+        })
+    </script>
 </body>
 </html>

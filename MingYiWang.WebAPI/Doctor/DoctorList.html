@@ -6,86 +6,150 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>医生列表</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.8.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <div class="col-xs-4">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="dept">科室:</label>
-                            </span>
-                            <select class="form-control" id="dept">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div id="el"></div>
+                <script type="text/x-template" id="demo-template">
+                    <div>
+                        <p>Selected: {{ selected }}</p>
+                        <select2 :options="options" v-model="selected">
+                            <option disabled value="0">Select one</option>
+                        </select2>
                     </div>
-                    <div class="col-xs-4">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="lastname">关键字:</label>
-                            </span>
-                            <input type="text" class="form-control" id="lastname" placeholder="请输入关键字">
-                        </div>
-
-
-
-                    </div>
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-default btn-large">查询</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <span>当前科室</span>
-                            <span class="badge">14</span>
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="view">
-                            <div class="list-group" contenteditable="true">
-                                <a href="#" class="list-group-item active">Home</a>
-                                <div class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-xs-4">
-                                            <img src="/Content/themes/base/images/doctor.png" class="img-circle img-responsive">
-                                            <h4 class="list-group-item-heading">TangZhiWei</h4>
-
-                                        </div>
-                                        <div class="col-xs-7">
-                                            <p class="list-group-item-text">具有丰富的临床经营，擅长肝病，乙肝等治疗</p>
-                                        </div>
-                                        <div class="col-xs-1">
-                                            <p>
-                                                <a class="btn btn-primary btn-xs" href="#">Learn more</a>
-                                            </p>
-                                            <p>
-                                                <a class="btn btn-primary btn-xs" href="#">Learn more</a>
-                                            </p>
-                                            <p>
-                                                <a class="btn btn-primary btn-xs" href="#">Learn more</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </script>
+                <script type="text/x-template" id="select2-template">
+                    <select>
+                        <slot></slot>
+                    </select>
+                </script>
+            </div>
+            <div class="row">
+                <simple-grid :data-list="gridData" :columns="gridColumns">
+                </simple-grid>
             </div>
         </div>
     </div>
+    <template id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="col in columns">
+                        {{ col | capitalize}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(index,entry) in dataList">
+                    <td v-for="col in columns">
+                        {{entry[col]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/ajax-helper.js"></script>
+    <script>
+        Vue.component('simple-grid', {
+            template: '#grid-template',
+            props: ['dataList', 'columns']
+        })
+    </script>
+    <script>
+        var ajaxHelper = new AjaxHelper()
+        var demo = new Vue({
+            el: '#app',
+            data: {
+                gridColumns: ['DoctorName', 'DoctorCertNO', 'HospitalName', 'SkillDesc'],
+                gridData: [],
+                apiUrl: 'http://localhost:2836/api/doctor/doctors'
+            },
+            ready: function () {
+                this.getDoctors()
+            },
+            methods: {
+
+                getDoctors: function () {
+                    // 定义vm变量，让它指向this,this是当前的Vue实例
+                    var vm = this,
+                        callback = function (data) {
+                            // 由于函数的作用域，这里不能用this
+                            vm.$set('gridData', data.Data)
+                        }
+                    ajaxHelper.get(vm.apiUrl, null, callback)
+                }
+            }
+        })
+    </script>
+
+    <script>
+        Vue.component('select2', {
+            props: ['options', 'value'],
+            template: '#select2-template',
+            mounted: function () {
+                var vm = this
+                $(this.$el)
+                .val(this.value)
+                // init select2
+                .select2({ data: this.options })
+                // emit event on change.
+                .on('change', function () {
+                    vm.$emit('input', this.value)
+                })
+            },
+            watch: {
+                value: function (value) {
+                    // update value
+                    $(this.$el).val(value)
+                },
+                options: function (options) {
+                    // update options
+                    $(this.$el).select2({ data: options })
+                }
+            },
+            destroyed: function () {
+                $(this.$el).off().select2('destroy')
+            }
+        })
+
+        var vm = new Vue({
+            el: '#el',
+            template: '#demo-template',
+            data: {
+                selected: 0,
+                options: [],
+                apiUrl: 'http://localhost:2836/api/dept/Depts'
+
+            },
+            ready: function () {
+                this.getDepts()
+            },
+            methods: {
+
+                getDepts: function () {
+                    // 定义vm变量，让它指向this,this是当前的Vue实例
+                    var vm = this,
+                        callback = function (data) {
+                            results = [];
+                            for (var i in data.Data) {
+                                results.push({ id: i.Id, text: i.Text });
+                            }
+                            // 由于函数的作用域，这里不能用this
+                            vm.$set('options', results)
+                        }
+                    ajaxHelper.get(vm.apiUrl, null, callback)
+                }
+            }
+
+        })
+    </script>
 </body>
 </html>

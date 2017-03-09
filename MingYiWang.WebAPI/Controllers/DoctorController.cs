@@ -21,6 +21,8 @@ namespace MingYiWang.WebAPI.Controllers
             return new ResultApi<string>();
         }
 
+        [HttpGet]
+        [ActionName("api/Doctor/Doctors")]
         /// <summary>
         /// 医生列表
         /// </summary>
@@ -28,14 +30,30 @@ namespace MingYiWang.WebAPI.Controllers
         /// <returns></returns>
         public ResultApi<List<DoctorQueryResponse>> List([FromBody] DoctorQueryRequest req)
         {
+            var lst = new List<DoctorQueryResponse>();
+            var doctor = new DoctorQueryResponse
+            {
+                DeptName = "脑科",
+                DoctorCertNO = "0001",
+                DoctorName = "测试医生列表",
+                SkillDesc = "具有丰富的临床经验，学科带头人",
+                HospitalName = "上海华山医院",
+                OrderCount = 20
+            };
+            doctor.DirectReg.DeptId = "0001";
+            doctor.DirectReg.DoctorId = "0001";
+            doctor.DirectReg.HospitalId = "0001";
+            lst.Add(doctor);
+            var result = new ResultApi<List<DoctorQueryResponse>>();
+            result.Data = lst;
+            return result;
 
-            return new ResultApi<List<DoctorQueryResponse>>();
         }
 
 
 
 
-        
+
 
 
 

@@ -11,8 +11,8 @@ namespace MingYiWang.Common.Model
     public class CommboxItem
     {
 
-        public string Value { get; set; }
+        public string Id { get; set; }
 
-        public string Name { get; set; }
+        public string Text { get; set; }
     }
 }
