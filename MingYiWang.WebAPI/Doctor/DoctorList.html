@@ -145,7 +145,7 @@
                             // 由于函数的作用域，这里不能用this
                             vm.$set('options', results)
                         }
-                    ajaxHelper.get(vm.apiUrl, null, callback)
+                    ajaxHelper.post(vm.apiUrl, null, callback)
                 }
             }
 

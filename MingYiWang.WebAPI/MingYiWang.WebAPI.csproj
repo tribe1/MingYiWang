@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AdviceController.cs" />
     <Compile Include="Controllers\CheckWeChatSignatureController.cs" />
     <Compile Include="Controllers\DeptController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
     <Compile Include="Controllers\KeyRegController.cs" />
     <Compile Include="Controllers\PatientController.cs" />

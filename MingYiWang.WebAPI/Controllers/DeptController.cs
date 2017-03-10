@@ -11,8 +11,6 @@ namespace MingYiWang.WebAPI.Controllers
 {
     public class DeptController : ApiController
     {
-        [HttpGet]
-        [ActionName("api/dept/Depts")]
         public ResultApi<List<CommboxItem>> List([FromBody] DeptRequest req)
         {
             var lst = new List<CommboxItem>();

@@ -16,7 +16,7 @@ namespace MingYiWang.WebAPI.Controllers
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        public ResultApi<string> Register([FromBody] DoctorRegisterRequest req)
+        public ResultApi<string> Register([FromBody]DoctorRegisterRequest req)
         {
             return new ResultApi<string>();
         }
@@ -30,6 +30,7 @@ namespace MingYiWang.WebAPI.Controllers
         /// <returns></returns>
         public ResultApi<List<DoctorQueryResponse>> List([FromBody] DoctorQueryRequest req)
         {
+
             var lst = new List<DoctorQueryResponse>();
             var doctor = new DoctorQueryResponse
             {
