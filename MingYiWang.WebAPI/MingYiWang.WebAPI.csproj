@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>App_Data/XmlDocument.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -178,6 +179,7 @@
     <Compile Include="Controllers\KeyRegController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +194,7 @@
     <Compile Include="Models\Request\KeyRegRequest.cs" />
     <Compile Include="Models\Request\PatientInfoChangeRequest.cs" />
     <Compile Include="Models\Request\PatientRegisterRequest.cs" />
+    <Compile Include="Models\Request\UserRequest.cs" />
     <Compile Include="Models\Response\AdviceResponse.cs" />
     <Compile Include="Models\Response\DoctorQueryResponse.cs" />
     <Compile Include="Models\Response\HospitalResponse.cs" />
@@ -322,6 +325,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="User\Register.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

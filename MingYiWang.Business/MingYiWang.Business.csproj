@@ -59,6 +59,7 @@
     <Compile Include="SaveUserInfo\ISaveUserInfo.cs" />
     <Compile Include="SaveUserInfo\SaveDoctorInfo.cs" />
     <Compile Include="SaveUserInfo\SavePatientInfo.cs" />
+    <Compile Include="SaveUserInfo\SaveUserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MingYiWang.Business.Model\MingYiWang.Business.Model.csproj">
