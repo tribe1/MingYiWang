@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Vue_WebApi.Controllers
+namespace MingYiWang.WebAPI.Controllers
 {
     public class HomeController : Controller
     {

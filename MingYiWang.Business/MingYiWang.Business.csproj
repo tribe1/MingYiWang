@@ -53,6 +53,7 @@
     <Compile Include="ChangeUserInfo\ChangeDoctorInfo.cs" />
     <Compile Include="ChangeUserInfo\ChangePatientInfo.cs" />
     <Compile Include="ChangeUserInfo\IChangeUserInfo.cs" />
+    <Compile Include="DeptBiz.cs" />
     <Compile Include="DoctorBiz.cs" />
     <Compile Include="PatientBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

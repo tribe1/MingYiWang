@@ -396,6 +396,32 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:MingYiWang.WebAPI.Controllers.DeptController">
+            <summary>
+            科室管理
+            </summary>
+        </member>
+        <member name="M:MingYiWang.WebAPI.Controllers.DeptController.List(MingYiWang.WebAPI.Models.DeptRequest)">
+            <summary>
+            获取科室集合
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MingYiWang.WebAPI.Controllers.DeptController.CreateDept(MingYiWang.WebAPI.Models.NewDeptRequest)">
+            <summary>
+            创建科室
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MingYiWang.WebAPI.Controllers.DeptController.DeleteDept(System.String)">
+            <summary>
+            删除科室，因为科室是公共数据，所有操作都是逻辑删除
+            </summary>
+            <param name="deptId"></param>
+            <returns></returns>
+        </member>
         <member name="T:MingYiWang.WebAPI.Controllers.HospitalController">
             <summary>
             医院控制器
@@ -464,6 +490,21 @@
         <member name="P:MingYiWang.WebAPI.Models.KeyReg.DoctorId">
             <summary>
             医生Id
+            </summary>
+        </member>
+        <member name="T:MingYiWang.WebAPI.Models.NewDeptRequest">
+            <summary>
+            新建一个科室
+            </summary>
+        </member>
+        <member name="P:MingYiWang.WebAPI.Models.NewDeptRequest.DeptId">
+            <summary>
+            科室Id    
+            </summary>
+        </member>
+        <member name="P:MingYiWang.WebAPI.Models.NewDeptRequest.DeptName">
+            <summary>
+            科室名称
             </summary>
         </member>
         <member name="T:MingYiWang.WebAPI.Models.DoctorQueryRequest">

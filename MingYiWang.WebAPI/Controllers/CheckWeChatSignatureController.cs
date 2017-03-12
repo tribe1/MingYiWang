@@ -48,12 +48,7 @@ namespace MingYiWang.WebAPI.Controllers
                 return ((HttpContextWrapper)request.Properties["MS_HttpContext"]).Request.UserHostAddress;
             }
 
-            if (request.Properties.ContainsKey(RemoteEndpointMessageProperty.Name))
-            {
-                RemoteEndpointMessageProperty prop;
-                prop = (RemoteEndpointMessageProperty)request.Properties[RemoteEndpointMessageProperty.Name];
-                return prop.Address;
-            }
+           
 
             return null;
         }

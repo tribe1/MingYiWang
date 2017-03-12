@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.DataAccess.MySql", "MingYiWang.DataAccess.MySql\MingYiWang.DataAccess.MySql.csproj", "{0F57EB9F-6844-4768-807A-3CB5D4D7E684}"
 EndProject
@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.Common", "MingYi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.Business", "MingYiWang.Business\MingYiWang.Business.csproj", "{BF479838-E9EA-4E68-B672-506618DE6718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.WebAPI", "MingYiWang.WebAPI\MingYiWang.WebAPI.csproj", "{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{39627E66-EFF1-493A-90A6-5F7F42A6AA47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iHealthwoo.WeChat.Utility", "iHealthwoo.WeChat.Utility\iHealthwoo.WeChat.Utility.csproj", "{198952F5-4FD3-4DE5-8F96-2661646FA673}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.WebAPI", "MingYiWang.WebAPI\MingYiWang.WebAPI.csproj", "{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +39,14 @@ Global
 		{BF479838-E9EA-4E68-B672-506618DE6718}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF479838-E9EA-4E68-B672-506618DE6718}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF479838-E9EA-4E68-B672-506618DE6718}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDF8C7E2-19F0-4E78-B05E-1D50E1A917DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{198952F5-4FD3-4DE5-8F96-2661646FA673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{198952F5-4FD3-4DE5-8F96-2661646FA673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{198952F5-4FD3-4DE5-8F96-2661646FA673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{198952F5-4FD3-4DE5-8F96-2661646FA673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

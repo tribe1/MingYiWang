@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>科室管理--新建科室</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <simple-grid :data-list="gridData" :columns="gridColumns">
+            </simple-grid>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                <button @click="this.show = true">Create</button>
+            </div>
+        </div>
+
+        <modal-dialog v-bind:show.sync="show">
+
+            <header class="dialog-header" slot="header">
+                <h1 class="dialog-title">新建科室</h1>
+            </header>
+
+            <div class="dialog-body" slot="body">
+                <div v-show="item.DeptName" class="form-group">
+                    <label>科室:</label>
+                    <input type="text" v-model="item.DeptName" disabled="disabled" />
+                </div>
+                <div class="form-group">
+                    <label>描述</label>
+                    <input type="text" v-model="item.Remark" />
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <button @click="createDept">Save</button>
+                </div>
+            </div>
+        </modal-dialog>
+    </div>
+
+    <template id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="col in columns">
+                        {{ col.name | capitalize}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(index,entry) in dataList">
+                    <td v-for="col in columns">
+                        {{ entry[col.name] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="dialog-template">
+        <div class="dialogs">
+            <div class="dialog" v-bind:class="{ 'dialog-active': show }">
+                <div class="dialog-content">
+                    <div class="close rotate">
+                        <span class="iconfont icon-close" @click="close"></span>
+                    </div>
+                    <slot name="header"></slot>
+                    <slot name="body"></slot>
+                    <slot name="footer"></slot>
+                </div>
+            </div>
+            <div class="dialog-overlay"></div>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/ajax-helper.js"></script>
+    <script>
+        Vue.component('simple-grid', {
+            template: '#grid-template',
+            props: ['dataList', 'columns']
+        })
+        Vue.component('modal-dialog', {
+            template: '#dialog-template',
+            props: ['show'],
+            methods: {
+                close: function () {
+                    this.show = false
+                }
+            }
+        })
+    </script>
+    <script>
+        var ajaxHelper = new AjaxHelper()
+        var demo = new Vue({
+            el: '#app',
+            data: {
+                show: false,
+                gridColumns: [{
+                    name: 'DeptId',
+                    isKey: true
+                }, {
+                    name: 'DeptName'
+                }, {
+                    name: 'Remark'
+                }],
+                gridData: [],
+                apiUrl: 'http://localhost:2836/api/Dept',
+                item: {}
+            },
+            ready: function () {
+                this.getDepts()
+            },
+            methods: {
+                closeDialog: function () {
+                    this.show = false
+                },
+                getDepts: function () {
+                    // 定义vm变量，让它指向this,this是当前的Vue实例
+                    var vm = this,
+                        callback = function (data) {
+                            // 由于函数的作用域，这里不能用this
+                            vm.$set('gridData', data)
+                        }
+                    ajaxHelper.get(vm.apiUrl, null, callback)
+                },
+                createDept: function () {
+                    var vm = this,
+                        callback = function (data) {
+                            vm.$set('item', {})
+                            // 添加成功后，重新加载页面数据
+                            vm.getDepts()
+                        }
+                    // 将vm.item直接POST到服务端
+                    ajaxHelper.post(vm.apiUrl, vm.item, callback)
+                    this.show = false
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
