@@ -1,0 +1,3 @@
+﻿namespace MingYiWang.WebAPI.Controllers
+{
+}

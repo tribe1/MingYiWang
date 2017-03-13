@@ -21,17 +21,20 @@ namespace MingYiWang.WebAPI.Controllers
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        public ResultApi<string> Register([FromBody]UserRequest req)
+        public ResultApi<string> PostUser(UserRequest req)
         {
+            if (null == req)
+            {
+                throw new Exception("参数不能为空");
+            }
+
             var user = new User();
             user.eMail = req.eMail;
+            user.Tel = req.Tel;
             user.UserName = req.UserName;
             user.Password = req.Password;
             var userInfo = new SaveUserInfo(user);
             return userInfo.SaveInfo();
         }
-
-
-
     }
 }

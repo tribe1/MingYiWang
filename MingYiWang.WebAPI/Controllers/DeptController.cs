@@ -1,4 +1,7 @@
-﻿using MingYiWang.Common.Model;
+﻿using MingYiWang.Business;
+using MingYiWang.Business.Model;
+using MingYiWang.Common.Model;
+using MingYiWang.DataAccess.MySql;
 using MingYiWang.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -14,19 +17,16 @@ namespace MingYiWang.WebAPI.Controllers
     /// </summary>
     public class DeptController : ApiController
     {
+        private readonly DeptContext dbContext = new DeptContext();
         /// <summary>
         /// 获取科室集合
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        public ResultApi<List<CommboxItem>> GetDepts()
+        public ResultApi<List<Dept>> GetDepts()
         {
-            var lst = new List<CommboxItem>();
-            lst.Add(new CommboxItem { Text = "心内科", Id = "0001" });
-            lst.Add(new CommboxItem { Text = "脑科", Id = "0002" });
-            lst.Add(new CommboxItem { Text = "耳鼻喉科", Id = "0003" });
-            var result = new ResultApi<List<CommboxItem>>();
-            result.Data = lst;
+            var result = new ResultApi<List<Dept>>();
+            result.Data = dbContext.Depts.ToList();
             return result;
         }
 
@@ -37,9 +37,19 @@ namespace MingYiWang.WebAPI.Controllers
         /// <returns></returns>
         public ResultApi<string> PostDept(NewDeptRequest req)
         {
-            var result = new ResultApi<string>();
+            var biz = new DeptBiz(TransferTo(req));
+            return biz.SaveInfo(); ;
+        }
 
-            return result;
+        private Dept TransferTo(NewDeptRequest req)
+        {
+
+            if (null == req)
+            {
+                throw new Exception("参数不能为空");
+            }
+            return new Dept { DeptId = req.DeptId, Remark = req.Remark, DeptName = req.DeptName };
+
         }
 
 

@@ -209,6 +209,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdviceController.cs" />
     <Compile Include="Controllers\CheckWeChatSignatureController.cs" />
+    <Compile Include="Controllers\DeptContext.cs" />
     <Compile Include="Controllers\DeptController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Doctor\My.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\iconfont.css" />
     <Content Include="Global.asax" />
     <Content Include="js\ajax-helper.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
@@ -373,6 +375,10 @@
     <ProjectReference Include="..\MingYiWang.Common\MingYiWang.Common.csproj">
       <Project>{d639f3ec-7afe-4ad0-a8bc-5d9423e8f42c}</Project>
       <Name>MingYiWang.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MingYiWang.DataAccess.MySql\MingYiWang.DataAccess.MySql.csproj">
+      <Project>{0F57EB9F-6844-4768-807A-3CB5D4D7E684}</Project>
+      <Name>MingYiWang.DataAccess.MySql</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

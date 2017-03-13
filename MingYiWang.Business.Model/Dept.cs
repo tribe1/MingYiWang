@@ -15,7 +15,6 @@ namespace MingYiWang.Business.Model
 
         public string DeptName { get; set; }
 
-
-
+        public string Remark { get; set; }
     }
 }

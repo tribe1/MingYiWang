@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>科室管理--新建科室</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Content/style.css" />
+    <link rel="stylesheet" href="../fonts/iconfont.css" />
     <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 
@@ -27,9 +29,13 @@
             </header>
 
             <div class="dialog-body" slot="body">
-                <div v-show="item.DeptName" class="form-group">
+                <div class="form-group">
+                    <label>科室编码:</label>
+                    <input type="text" v-model="item.DeptId" />
+                </div>
+                <div class="form-group">
                     <label>科室:</label>
-                    <input type="text" v-model="item.DeptName" disabled="disabled" />
+                    <input type="text" v-model="item.DeptName" />
                 </div>
                 <div class="form-group">
                     <label>描述</label>
@@ -126,7 +132,7 @@
                     var vm = this,
                         callback = function (data) {
                             // 由于函数的作用域，这里不能用this
-                            vm.$set('gridData', data)
+                            vm.$set('gridData', data.Data)
                         }
                     ajaxHelper.get(vm.apiUrl, null, callback)
                 },

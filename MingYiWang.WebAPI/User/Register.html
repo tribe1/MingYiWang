@@ -5,60 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册--享受更好的服务</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Content/style.css" />
+    <link rel="stylesheet" href="../fonts/iconfont.css" />
     <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div class="container">
-        <form id="form" class="form-horizontal" role="form">
-            <div class="form-group">
-                <label for="email" class="col-xs-3 control-label">邮箱：</label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" v-model="user.email"  id="email" placeholder="请输入邮箱" />
+    <div id="app">
+        <div class="container">
+            <form id="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">邮箱：</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" v-model="user.email" placeholder="请输入邮箱" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="userName" class="col-xs-3 control-label">姓名：</label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" v-model="user.userName" id="userName" placeholder="请输入姓名" />
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">手机：</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" v-model="user.tel" placeholder="请输入手机" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="password" class="col-xs-3 control-label">密码：</label>
-                <div class="col-xs-9">
-                    <input type="password" class="form-control" v-model="user.password" id="password" placeholder="请输入密码" />
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">姓名：</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" v-model="user.userName" placeholder="请输入姓名" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="cfmPassword" class="col-xs-3 control-label">确认密码：</label>
-                <div class="col-xs-9">
-                    <input type="password" class="form-control" v-model="user.cfmPassword" id="cfmPassword" placeholder="请输入确认密码" />
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">密码：</label>
+                    <div class="col-xs-9">
+                        <input type="password" class="form-control" v-model="user.password" placeholder="请输入密码" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
-                    <label></label>
-                    <button @click="createdoctor"
-                            type="submit" class="btn btn-default">
-                        注册
-                    </button>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">确认密码：</label>
+                    <div class="col-xs-9">
+                        <input type="password" class="form-control" v-model="user.cfmPassword" placeholder="请输入确认密码" />
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+                        <label></label>
+                        <button @click="createUser"
+                              >
+                            注册
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="../js/vue.js"></script>
     <script src="../js/zepto.js"></script>
     <script src="../js/ajax-helper.js"></script>
     <script type="text/javascript">
         var ajaxHelper = new AjaxHelper()
-        new Vue({
+
+        var demo = new Vue({
             el: '#form',
             data: {
-                user: { email: '', userName: '', password: '', cfmPassword: '' },
+                user: {},
                 apiUrl: 'http://localhost:2836/api/User'
             },
             methods:
     {
-        createdoctor: function () {
+        createUser: function () {
             var vm = this,
 							callback = function (data) {
 							    // 添加成功后，重新加载页面数据

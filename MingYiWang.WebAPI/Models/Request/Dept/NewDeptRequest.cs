@@ -20,5 +20,11 @@ namespace MingYiWang.WebAPI.Models
         /// 科室名称
         /// </summary>
         public string DeptName { get; set; }
+
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
     }
 }
