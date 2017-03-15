@@ -257,6 +257,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\style.css" />
+    <Content Include="css\dialog.css" />
+    <Content Include="css\tpl-style.css" />
     <Content Include="Demo\HelloWorld.html" />
     <Content Include="Demo\VueBind.html" />
     <Content Include="Dept\CreateDept.html" />
@@ -272,6 +274,7 @@
     <Content Include="fonts\iconfont.css" />
     <Content Include="Global.asax" />
     <Content Include="js\ajax-helper.js" />
+    <Content Include="js\dialog.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\vue.js" />
     <Content Include="js\zepto.js" />
