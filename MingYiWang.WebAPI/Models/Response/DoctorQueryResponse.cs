@@ -7,6 +7,11 @@ namespace MingYiWang.WebAPI.Models
 {
     public class DoctorQueryResponse
     {
+
+        /// <summary>
+        /// 用户头像
+        /// </summary>
+        public string Avatar { get; set; }
         /// <summary>
         /// 医生职业证书
         /// </summary>
@@ -25,6 +30,11 @@ namespace MingYiWang.WebAPI.Models
         /// 科室
         /// </summary>
         public string DeptName { get; set; }
+
+        /// <summary>
+        /// 职称
+        /// </summary>
+        public string Title { get; set; }
 
 
 
@@ -53,7 +63,7 @@ namespace MingYiWang.WebAPI.Models
     }
 
 
-    
+
 
 }
 

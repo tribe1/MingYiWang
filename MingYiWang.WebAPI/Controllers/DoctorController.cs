@@ -39,11 +39,13 @@ namespace MingYiWang.WebAPI.Controllers
                 DoctorName = "测试医生列表",
                 SkillDesc = "具有丰富的临床经验，学科带头人",
                 HospitalName = "上海华山医院",
-                OrderCount = 20
+                OrderCount = 20,
+                Title = "教授"
             };
             doctor.DirectReg.DeptId = "0001";
             doctor.DirectReg.DoctorId = "0001";
             doctor.DirectReg.HospitalId = "0001";
+            lst.Add(doctor);
             lst.Add(doctor);
             var result = new ResultApi<List<DoctorQueryResponse>>();
             result.Data = lst;

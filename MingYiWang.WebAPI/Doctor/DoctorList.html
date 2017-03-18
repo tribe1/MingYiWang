@@ -6,61 +6,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>医生列表</title>
-    <link href="../Content/style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-    <script src="../Scripts/jquery-1.8.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*.doc_list {
+            overflow: hidden;
+            clear: both;
+            border-bottom: 1px solid #eee;
+            padding: 25px 0 20px 0;
+        }
+
+        .face_img {
+            float: left;
+            width: 75px;
+            height: 90px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .info_doc {
+            float: left;
+            width: 230px;
+            padding: 0 25px 0 15px;
+        }*/
+
+
+        .info_doc span {
+            display: block;
+            color: #999;
+            line-height: 20px;
+        }
+
+        .info_doc p {
+            display: block;
+            line-height: 20px;
+            color: #666;
+            padding-top: 8px;
+        }
+
+
+        .doc_ridata span {
+            display: block;
+            color: #999;
+            padding-bottom: 3px;
+        }
+
+        .doc_ridata a {
+            background-color: #7cc972;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 27px;
+            height: 27px;
+            width: 85px;
+            display: block;
+            margin: 5px auto 0;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-        <div class="container">
-            <div class="row">
-                <div id="el"></div>
-                <script type="text/x-template" id="demo-template">
-                    <div>
-                        <p>Selected: {{ selected }}</p>
-                        <select2 :options="options" v-model="selected">
-                            <option disabled value="0">Select one</option>
-                        </select2>
-                    </div>
-                </script>
-                <script type="text/x-template" id="select2-template">
-                    <select>
-                        <slot></slot>
-                    </select>
-                </script>
-            </div>
-            <div class="row">
-                <simple-grid :data-list="gridData" :columns="gridColumns">
-                </simple-grid>
-            </div>
-        </div>
+
+    <div id="app" class="container">
+        <simple-grid :doctors="doctors">
+        </simple-grid>
     </div>
     <template id="grid-template">
-        <table>
-            <thead>
-                <tr>
-                    <th v-for="col in columns">
-                        {{ col | capitalize}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(index,entry) in dataList">
-                    <td v-for="col in columns">
-                        {{entry[col]}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div class="row" v-for="doctor in doctors">
+            <div class="col-xs-3">
+                <div class="face_img">
+                    <img src="{{doctor.Avatar}}">
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="info_doc">
+                    <span>
+                        {{doctor.DeptName}} {{doctor.Title}}
+                    </span>
+                    <span>
+                        <strong>{{doctor.DoctorName}}</strong>
+                    </span>
+                    <span>
+                        执业编号：{{doctor.DoctorCertNO}}
+                    </span>
+                    <p>
+                        主治疾病：{{doctor.SkillDesc}}...
+                        <a target="_blank" href="http://www.120.net/doctor/7wkseltyawkim7p8.html">详情&gt;</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="doc_ridata">
+                    <span><em>20.00</em>元 /次</span>
+                    <span>已服务：{{doctor.OrderCount}}人</span>
+                    <span>
+                        <a target="_blank" href="http://www.51wenyisheng.com/doctor/DoctoDetail.html">向TA咨询</a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </template>
     <script src="../js/vue.js"></script>
     <script src="../js/zepto.js"></script>
+    <script src="../Scripts/jquery-1.8.2.min.js"></script>
     <script src="../js/ajax-helper.js"></script>
     <script>
         Vue.component('simple-grid', {
             template: '#grid-template',
-            props: ['dataList', 'columns']
+            props: ['doctors']
         })
     </script>
     <script>
@@ -68,9 +121,8 @@
         var demo = new Vue({
             el: '#app',
             data: {
-                gridColumns: ['DoctorName', 'DoctorCertNO', 'HospitalName', 'SkillDesc'],
-                gridData: [],
-                apiUrl: 'http://localhost:2836/api/doctor/doctors'
+                doctors: [],
+                apiUrl: 'http://localhost:2836/api/doctor'
             },
             ready: function () {
                 this.getDoctors()
@@ -82,73 +134,11 @@
                     var vm = this,
                         callback = function (data) {
                             // 由于函数的作用域，这里不能用this
-                            vm.$set('gridData', data.Data)
+                            vm.$set('doctors', data.Data)
                         }
                     ajaxHelper.get(vm.apiUrl, null, callback)
                 }
             }
-        })
-    </script>
-
-    <script>
-        Vue.component('select2', {
-            props: ['options', 'value'],
-            template: '#select2-template',
-            mounted: function () {
-                var vm = this
-                $(this.$el)
-                .val(this.value)
-                // init select2
-                .select2({ data: this.options })
-                // emit event on change.
-                .on('change', function () {
-                    vm.$emit('input', this.value)
-                })
-            },
-            watch: {
-                value: function (value) {
-                    // update value
-                    $(this.$el).val(value)
-                },
-                options: function (options) {
-                    // update options
-                    $(this.$el).select2({ data: options })
-                }
-            },
-            destroyed: function () {
-                $(this.$el).off().select2('destroy')
-            }
-        })
-
-        var vm = new Vue({
-            el: '#el',
-            template: '#demo-template',
-            data: {
-                selected: 0,
-                options: [],
-                apiUrl: 'http://localhost:2836/api/dept/Depts'
-
-            },
-            ready: function () {
-                this.getDepts()
-            },
-            methods: {
-
-                getDepts: function () {
-                    // 定义vm变量，让它指向this,this是当前的Vue实例
-                    var vm = this,
-                        callback = function (data) {
-                            results = [];
-                            for (var i in data.Data) {
-                                results.push({ id: i.Id, text: i.Text });
-                            }
-                            // 由于函数的作用域，这里不能用this
-                            vm.$set('options', results)
-                        }
-                    ajaxHelper.post(vm.apiUrl, null, callback)
-                }
-            }
-
         })
     </script>
 </body>
