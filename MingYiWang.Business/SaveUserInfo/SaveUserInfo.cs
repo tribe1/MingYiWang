@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using MingYiWang.Common.Model;
 using MingYiWang.Business.Model;
-using MingYiWang.DataAccess.MySql;
+using MingYiWang.DataAccess.SqLite;
 
 namespace MingYiWang.Business
 {

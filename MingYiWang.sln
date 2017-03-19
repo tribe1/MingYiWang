@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iHealthwoo.WeChat.Utility",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.WebAPI", "MingYiWang.WebAPI\MingYiWang.WebAPI.csproj", "{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MingYiWang.DataAccess.SqLite", "MingYiWang.DataAccess.SqLite\MingYiWang.DataAccess.SqLite.csproj", "{7BFDC8F7-1C60-4E60-9526-2BFC71BFD6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B43F7985-59BC-4E6A-9ACB-2332FD7A6B7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFDC8F7-1C60-4E60-9526-2BFC71BFD6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFDC8F7-1C60-4E60-9526-2BFC71BFD6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFDC8F7-1C60-4E60-9526-2BFC71BFD6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFDC8F7-1C60-4E60-9526-2BFC71BFD6CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

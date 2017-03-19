@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MingYiWang.Business</RootNamespace>
     <AssemblyName>MingYiWang.Business</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -71,9 +73,9 @@
       <Project>{d639f3ec-7afe-4ad0-a8bc-5d9423e8f42c}</Project>
       <Name>MingYiWang.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MingYiWang.DataAccess.MySql\MingYiWang.DataAccess.MySql.csproj">
-      <Project>{0f57eb9f-6844-4768-807a-3cb5d4d7e684}</Project>
-      <Name>MingYiWang.DataAccess.MySql</Name>
+    <ProjectReference Include="..\MingYiWang.DataAccess.SqLite\MingYiWang.DataAccess.SqLite.csproj">
+      <Project>{7bfdc8f7-1c60-4e60-9526-2bfc71bfd6ca}</Project>
+      <Name>MingYiWang.DataAccess.SqLite</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using MingYiWang.Business.Model;
 using MingYiWang.Common.Model;
-using MingYiWang.DataAccess.MySql;
+
+using MingYiWang.DataAccess.SqLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
