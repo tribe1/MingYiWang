@@ -12,48 +12,31 @@ namespace MingYiWang.DataAccess.SqLite
 {
     public class SqLiteContext : DbContext
     {
-        private static string cs = null;
-        private const string DB_FILE_NAME = @"App_Data\mingyiwang.db";
-        public static string ConnectionString
-        {
-            get
-            {
-                return cs ?? (cs = string.Format(@"Data Source={0};Pooling=true;", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DB_FILE_NAME)));
-            }
-        }
-       
-        private static string connectionString = ConfigurationManager.ConnectionStrings["sqlite"].ConnectionString;
-        private SQLiteConnection connection = new SQLiteConnection(ConnectionString);
-        private DbContext _dbContext;
+        //private static string cs = null;
+        //private const string DB_FILE_NAME = @"App_Data\mingyiwang.db";
+        //public static string ConnectionString
+        //{
+        //    get
+        //    {
+        //        return cs ?? (cs = string.Format(@"Data Source={0};Pooling=true;", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DB_FILE_NAME)));
+        //    }
+        //}
+
+        //private static string connectionString = ConfigurationManager.ConnectionStrings["sqlite"].ConnectionString;
+        //private SQLiteConnection connection = new SQLiteConnection(ConnectionString);
+        //private DbContext _dbContext;
+
         public SqLiteContext()
-      : base(connectionString)
-        {
-
-            connection.Open();
-            _dbContext = new DbContext(connection, false);
-        }
-
-        // Constructor to use on a DbConnection that is already opened
-        public SqLiteContext(DbConnection existingConnection, bool contextOwnsConnection)
-      : base(existingConnection, contextOwnsConnection)
+            : base("sqlite")
         {
 
         }
 
-        public DbContext MySqlDbContext
-        {
-            get
-            {
-                if (_dbContext == null)
-                {
-                    _dbContext = new DbContext(connection, false);
-                }
-                return _dbContext;
-            }
+
+        //// Constructor to use on a DbConnection that is already opened
 
 
 
-        }
 
     }
 }

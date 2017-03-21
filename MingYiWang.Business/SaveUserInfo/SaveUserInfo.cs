@@ -21,11 +21,13 @@ namespace MingYiWang.Business
             var result = new ResultApi<string>();
             try
             {
-                var dbContext = new UserContext();
-                dbContext.Users.Add(_user);
-                dbContext.Save();
-                result.Sucess = true;
-                result.ReturnMsg = "保存信息成功";
+                using (var ctx = new UserContext())
+                {
+                    ctx.Users.Add(_user);
+                    ctx.Save();
+                    result.Sucess = true;
+                    result.ReturnMsg = "保存信息成功";
+                }
             }
             catch (Exception exp)
             {
