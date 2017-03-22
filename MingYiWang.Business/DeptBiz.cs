@@ -44,5 +44,27 @@ namespace MingYiWang.Business
             }
             return result;
         }
+
+
+        public static ResultApi<List<Dept>> GetDepts()
+        {
+            var result = new ResultApi<List<Dept>>();
+            try
+            {
+                using (var dbContext = new DeptContext())
+                {
+                    result.Sucess = true;
+                    result.ReturnMsg = "获取科室列表成功！";
+                    result.Data = dbContext.Depts.ToList();
+                }
+            }
+            catch (Exception exp)
+            {
+                result.ReturnMsg = exp.Message;
+                result.Sucess = false;
+            }
+            return result;
+
+        }
     }
 }
