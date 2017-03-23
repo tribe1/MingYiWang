@@ -8,15 +8,12 @@ using Senparc.Weixin.Context;
 using System.IO;
 using Senparc.Weixin.MP.Entities.Request;
 using MingYiWang.WebAPI.Services;
+using Antlr.Runtime;
 
 namespace MingYiWang.WebAPI.MessageHandler
 {
     public class CustomMessageHandler : MessageHandler<MessageContext<IRequestMessageBase, IResponseMessageBase>>
     {
-        public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
-        {
-            throw new NotImplementedException();
-        }
 
         public CustomMessageHandler(Stream inputStream, PostModel postModel, int maxRecordCount = 0)
            : base(inputStream, postModel, maxRecordCount)
@@ -24,19 +21,28 @@ namespace MingYiWang.WebAPI.MessageHandler
 
         }
 
+        public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
+        {
+            var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
+            responseMessage.Content = "您没有发送任何消息内容！";
+            return responseMessage;
+        }
+
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
             if (requestMessage.Content == null)
             {
+                responseMessage.Content = "您没有发送任何消息内容！";
 
             }
             else if (requestMessage.Content == "帮助")
             {
+                responseMessage = HelpService.GetResponseMessage(requestMessage);
             }
             else if (requestMessage.Content == "科室")
             {
-                responseMessage = DeptServices.GetResponseMessage(requestMessage);
+                responseMessage = DeptService.GetResponseMessage(requestMessage);
             }
             return responseMessage;
         }

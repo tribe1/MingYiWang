@@ -8,18 +8,12 @@ using System.Web;
 
 namespace MingYiWang.WebAPI.Services
 {
-    public class DeptServices
+    public class HelpService
     {
         public static ResponseMessageText GetResponseMessage(RequestMessageText requestMessage)
         {
             var responseMessage = ResponseMessageBase.CreateFromRequestMessage<ResponseMessageText>(requestMessage);
-            var sb = new StringBuilder();
-            var result = DeptBiz.GetDepts();
-            foreach (var dept in result.Data)
-            {
-                sb.Append(string.Format("编码：{0},科室：{1}\r\n", dept.DeptId, dept.DeptName));
-            }
-            responseMessage.Content = sb.ToString();
+            responseMessage.Content = string.Format("此页面是帮助页面。更多帮助请联系管理员");
             return responseMessage;
         }
     }
